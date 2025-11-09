@@ -1,0 +1,10 @@
+{
+    # Comment this to activate automatic HTTPS via Let's Encrypt
+    # But for local networks we use our local CA to issue
+    local_certs
+}
+
+localhost {
+    reverse_proxy docker-service:80
+    tls /certs/localhost.pem /certs/localhost.key
+}
